@@ -5,24 +5,23 @@
  */
 
 package edu.ie3.powerFactory2psdm.model
-
 import edu.ie3.powerFactory2psdm.model.RawPfGridModel.{
   ExtGrid,
-  LineTypes,
+  PowerPlants,
+  Trafos3w,
   Lines,
-  Loads,
+  Pvs,
+  Switches,
+  TrafoTypes3w,
   LoadsLV,
   LoadsMV,
   Nodes,
-  PowerPlants,
-  ProjectSettings,
-  Pvs,
-  StatGen,
-  Switches,
-  TrafoTypes2w,
-  TrafoTypes3w,
   Trafos2w,
-  Trafos3w
+  StatGen,
+  Loads,
+  ProjectSettings,
+  LineTypes,
+  TrafoTypes2w
 }
 
 final case class RawPfGridModel(
@@ -48,6 +47,7 @@ object RawPfGridModel {
 
   final case class Switches(
       id: Option[String],
+      on_off: Option[Double],
       bus1Id: Option[String],
       bus2Id: Option[String]
   )

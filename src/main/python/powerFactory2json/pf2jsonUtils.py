@@ -39,7 +39,6 @@ attributes4export = {
         "uline",
     ],
     'trafos2w': [],
-    'switches':[],
     'trafoTypes2w': [
         "strn",
         "utrn_h",
@@ -54,6 +53,9 @@ attributes4export = {
         "pcutr",
         "pfe",
         "curmg"
+    ],
+    'switches':[
+        "on_off"
     ],
     'trafos3w': [],
     'trafoTypes3w': [],
