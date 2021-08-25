@@ -470,83 +470,174 @@
   "lines": [
     {
       "id": "Grid.ElmNet\\Line_0001_0002/2.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0001.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0002.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0002.ElmTerm",
+      "typId": "TypLne 0001 to 0002.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0002_0003.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0002.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0003.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0003.ElmTerm",
+      "typId": "TypLne 0002 to 0003.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0010_0011.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0010.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0011.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0011.ElmTerm",
+      "typId": "TypLne 0010 to 0011.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0012_0013.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0012.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0013.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0013.ElmTerm",
+      "typId": "TypLne 0012 to 0013.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0013_0014.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0013.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0014.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0014.ElmTerm",
+      "typId": "TypLne 0013 to 0014.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0001_0005.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0001.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0005.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0005.ElmTerm",
+      "typId": "TypLne 0001 to 0005.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0002_0004.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0002.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0004.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0004.ElmTerm",
+      "typId": "TypLne 0002 to 0004.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0002_0005.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0002.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0005.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0005.ElmTerm",
+      "typId": "TypLne 0002 to 0005.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0006_0012.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0006.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0012.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0012.ElmTerm",
+      "typId": "TypLne 0006 to 0012.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0003_0004.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0003.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0004.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0004.ElmTerm",
+      "typId": "TypLne 0003 to 0004.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0004_0005.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0005.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0004.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0004.ElmTerm",
+      "typId": "TypLne 0004 to 0005.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0006_0011.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0011.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0006.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0006.ElmTerm",
+      "typId": "TypLne 0006 to 0011.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0006_0013.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0013.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0006.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0006.ElmTerm",
+      "typId": "TypLne 0006 to 0013.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0009_0010.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0009.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0010.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0010.ElmTerm",
+      "typId": "TypLne 0009 to 0010.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0009_0014.ElmLne",
+      "GPScoords": [
+        []
+      ],
+      "dline": 1.0,
       "bus1Id": "Grid.ElmNet\\Bus_0014.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0009.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0009.ElmTerm",
+      "typId": "TypLne 0009 to 0014.TypLne"
     },
     {
       "id": "Grid.ElmNet\\Line_0001_0002/1.ElmLne",
+      "GPScoords": [
+        [
+          51.4843281,
+          7.4116482
+        ],
+        [
+          52.2895,
+          12.8273
+        ],
+        [
+          52.4895,
+          13.8273
+        ]
+      ],
+      "dline": 1.7364000082015991,
       "bus1Id": "Grid.ElmNet\\Bus_0001.ElmTerm",
-      "bus2Id": "Grid.ElmNet\\Bus_0002.ElmTerm"
+      "bus2Id": "Grid.ElmNet\\Bus_0002.ElmTerm",
+      "typId": "TypLne 0001 to 0002.TypLne"
     }
   ],
   "lineTypes": [

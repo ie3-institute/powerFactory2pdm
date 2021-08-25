@@ -71,9 +71,12 @@ object RawPfGridModel {
   final case class StatGen(id: Option[String])
 
   final case class Lines(
+      GPScoords: Option[List[Option[List[Option[Double]]]]],
+      dline: Option[Double],
       id: Option[String],
-      bus1Id: Option[String],
-      bus2Id: Option[String]
+      bus2Id: Option[String],
+      typId: Option[String],
+      bus1Id: Option[String]
   )
 
   final case class PowerPlants(id: Option[String])

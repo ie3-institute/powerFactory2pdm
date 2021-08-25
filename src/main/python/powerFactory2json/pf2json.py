@@ -59,6 +59,7 @@ def get_attribute_dicts(raw_elements, attributes_to_include):
     """
     elements = []
     pf_edges = ["ElmLne", "ElmCoup"]
+    has_type = ["ElmLne"]
     for raw_element in raw_elements:
         element = get_attribute_dict(raw_element, attributes_to_include)
 
@@ -78,6 +79,9 @@ def get_attribute_dicts(raw_elements, attributes_to_include):
                 element["bus2Id"] = name_without_preamble(raw_element.bus2.cterm.GetFullName())
             except Exception:
                 element["bus2Id"] = None
+
+        if raw_element.GetClassName() in has_type:
+            element["typId"] = name_without_preamble(raw_element.typ_id.GetFullName())
 
         elements.append(element)
     return elements
