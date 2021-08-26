@@ -7,42 +7,50 @@
 package edu.ie3.powerFactory2psdm.common
 
 import com.typesafe.scalalogging.LazyLogging
+import edu.ie3.datamodel.models.StandardUnits.{
+  AZIMUTH,
+  EFFICIENCY,
+  SOLAR_HEIGHT
+}
 import edu.ie3.datamodel.models.input.connector.`type`.{
   LineTypeInput,
   Transformer2WTypeInput
 }
-import edu.ie3.datamodel.models.{OperationTime, StandardUnits, UniqueEntity}
+import edu.ie3.datamodel.models.input.system.characteristic.CosPhiFixed
+import edu.ie3.datamodel.models.input.system.{FixedFeedInInput, PvInput}
 import edu.ie3.datamodel.models.input.{NodeInput, OperatorInput}
 import edu.ie3.datamodel.models.voltagelevels.GermanVoltageLevelUtils.LV
+import edu.ie3.datamodel.models.{OperationTime, StandardUnits, UniqueEntity}
 import edu.ie3.powerFactory2psdm.config.ConversionConfig
-
-import java.io.File
+import edu.ie3.powerFactory2psdm.config.ConversionConfig.{
+  Fixed,
+  FixedQCharacteristic,
+  PvModelGeneration,
+  UniformDistribution
+}
 import edu.ie3.powerFactory2psdm.exception.io.GridParsingException
 import edu.ie3.powerFactory2psdm.exception.pf.TestException
 import edu.ie3.powerFactory2psdm.io.PfGridParser
-import edu.ie3.powerFactory2psdm.model.entity.{
-  ConnectedElement,
-  EntityModel,
-  Node,
-  Subnet
-}
+import edu.ie3.powerFactory2psdm.model.PreprocessedPfGridModel
 import edu.ie3.powerFactory2psdm.model.entity.types.{
   LineType,
   TransformerType2W
 }
-import edu.ie3.powerFactory2psdm.model.PreprocessedPfGridModel
-import edu.ie3.util.quantities.PowerSystemUnits.PU
+import edu.ie3.powerFactory2psdm.model.entity.{
+  ConnectedElement,
+  EntityModel,
+  Node,
+  StaticGenerator,
+  Subnet
+}
+import edu.ie3.util.quantities.PowerSystemUnits._
 import org.locationtech.jts.geom.{Coordinate, GeometryFactory}
 import pureconfig.ConfigSource
+import pureconfig.generic.auto._
 import tech.units.indriya.quantity.Quantities
 import tech.units.indriya.unit.Units.{OHM, PERCENT, SIEMENS}
-import edu.ie3.util.quantities.PowerSystemUnits.{
-  DEGREE_GEOM,
-  KILOVOLT,
-  VOLTAMPERE
-}
-import pureconfig.generic.auto._
 
+import java.io.File
 import java.util.UUID
 import javax.measure.MetricPrefix
 
@@ -263,6 +271,85 @@ object ConverterTestData extends LazyLogging {
       key,
       throw TestException(
         s"Cannot find input/result pair for ${LineType.getClass.getSimpleName} with key: $key "
+      )
+    )
+  }
+
+  val staticGenerator: StaticGenerator = StaticGenerator(
+    id = "someStatGen",
+    busId = "someNode",
+    sRated = 11,
+    cosPhi = 0.91,
+    indCapFlag = 0,
+    category = "Statischer Generator"
+  )
+
+  val statGenCosPhiExcMsg: String => String = (id: String) =>
+    s"Can't determine cos phi rated for static generator: $id. Exception: The inductive capacitive specifier should be either 0 (inductive) or 1 (capacitive)"
+
+  val pvModelGeneration: PvModelGeneration = PvModelGeneration(
+    albedo = Fixed(0.2),
+    azimuth = UniformDistribution(-90, 90),
+    etaConv = Fixed(0.95),
+    elevationAngle = UniformDistribution(20, 50),
+    qCharacteristic = FixedQCharacteristic,
+    kG = Fixed(0.9),
+    kT = Fixed(1)
+  )
+
+  val generatePvs = Map(
+    "somePvPlant" -> ConversionPair(
+      staticGenerator.copy(category = "Fotovoltaik"),
+      new PvInput(
+        UUID.randomUUID(),
+        "someStatGen",
+        getNodePair("someNode").result,
+        new CosPhiFixed("cosPhiFixed:{(0.0, 0.91)}"),
+        0.2,
+        Quantities.getQuantity(0, AZIMUTH),
+        Quantities.getQuantity(95, EFFICIENCY),
+        Quantities.getQuantity(35, SOLAR_HEIGHT),
+        1d,
+        0.9,
+        false,
+        Quantities.getQuantity(11, MEGAVOLTAMPERE),
+        0.91
+      )
+    )
+  )
+
+  def getGeneratePvPair(
+      key: String
+  ): ConversionPair[StaticGenerator, PvInput] = {
+    generatePvs.getOrElse(
+      key,
+      throw TestException(
+        s"Cannot find input/result pair for StaticGenerator/PvInput with key: $key "
+      )
+    )
+  }
+
+  val staticGenerator2FeedInPair = Map(
+    "someStatGen" -> ConversionPair(
+      staticGenerator,
+      new FixedFeedInInput(
+        UUID.randomUUID(),
+        "someStatGen",
+        getNodePair("someNode").result,
+        new CosPhiFixed("cosPhiFixed:{(0.0, 0.91)}"),
+        Quantities.getQuantity(11d, MEGAVOLTAMPERE),
+        0.91
+      )
+    )
+  )
+
+  def getStaticGenerator2FixedFeedInPair(
+      key: String
+  ): ConversionPair[StaticGenerator, FixedFeedInInput] = {
+    staticGenerator2FeedInPair.getOrElse(
+      key,
+      throw TestException(
+        s"Cannot find input/result pair for static generator to fixed feed in with key: $key"
       )
     )
   }
